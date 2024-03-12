@@ -1,16 +1,33 @@
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import ProductGridListSingle from "../../components/product/ProductGridListSingle";
+import { getProducts } from '../../services/productService';
+
 
 const ProductGridList = ({
-  products,
+
+  
   spaceBottomClass
 }) => {
   const currency = useSelector((state) => state.currency);
   const { cartItems } = useSelector((state) => state.cart);
   const { wishlistItems } = useSelector((state) => state.wishlist);
   const { compareItems } = useSelector((state) => state.compare);
+
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await getProducts();
+        setProducts(data);
+      } catch (error) {
+        console.error('Ürünleri getirirken bir hata oluştu:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
   
   return (
     <Fragment>

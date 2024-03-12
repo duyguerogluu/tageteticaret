@@ -13,7 +13,7 @@ const LoginRegister = () => {
     <Fragment>
       <SEO
         titleTemplate="Login"
-        description="Login page of flone react minimalist eCommerce template."
+        description="Login page of Marjilens react minimalist eCommerce template."
       />
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}

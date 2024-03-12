@@ -59,22 +59,8 @@ const IconGroup = ({ iconWhiteClass }) => {
           </ul>
         </div>
       </div>
-      <div className="same-style header-compare">
-        <Link to={process.env.PUBLIC_URL + "/compare"}>
-          <i className="pe-7s-shuffle" />
-          <span className="count-style">
-            {compareItems && compareItems.length ? compareItems.length : 0}
-          </span>
-        </Link>
-      </div>
-      <div className="same-style header-wishlist">
-        <Link to={process.env.PUBLIC_URL + "/wishlist"}>
-          <i className="pe-7s-like" />
-          <span className="count-style">
-            {wishlistItems && wishlistItems.length ? wishlistItems.length : 0}
-          </span>
-        </Link>
-      </div>
+      
+      
       <div className="same-style cart-wrap d-none d-lg-block">
         <button className="icon-cart" onClick={e => handleClick(e)}>
           <i className="pe-7s-shopbag" />

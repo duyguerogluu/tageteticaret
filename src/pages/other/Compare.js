@@ -21,7 +21,7 @@ const Compare = () => {
     <Fragment>
       <SEO
         titleTemplate="Compare"
-        description="Compare page of flone react minimalist eCommerce template."
+        description="Compare page of Marjilens react minimalist eCommerce template."
       />
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}

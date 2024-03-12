@@ -8,6 +8,8 @@ import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import ShopTopbar from "../../wrappers/product/ShopTopbar";
 import ShopProducts from "../../wrappers/product/ShopProducts";
+import productService from "../../services/productService";
+import products from "../../models/productModel";
 
 const ShopGridNoSidebar = () => {
   const [layout, setLayout] = useState("grid three-column");
@@ -19,7 +21,8 @@ const ShopGridNoSidebar = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [currentData, setCurrentData] = useState([]);
   const [sortedProducts, setSortedProducts] = useState([]);
-  const { products } = useSelector((state) => state.product);
+  const [apiProducts, setApiProducts] = useState([]);
+  //const { products } = useSelector((state) => state.product);
 
   const pageLimit = 15;
   let { pathname } = useLocation();
@@ -33,23 +36,32 @@ const ShopGridNoSidebar = () => {
     setFilterSortValue(sortValue);
   };
 
+ 
+
   useEffect(() => {
-    let sortedProducts = getSortedProducts(products, sortType, sortValue);
-    const filterSortedProducts = getSortedProducts(
-      sortedProducts,
-      filterSortType,
-      filterSortValue
-    );
-    sortedProducts = filterSortedProducts;
-    setSortedProducts(sortedProducts);
-    setCurrentData(sortedProducts.slice(offset, offset + pageLimit));
-  }, [offset, products, sortType, sortValue, filterSortType, filterSortValue]);
+   
+    const fetchProducts = async () => {
+      try {
+        const response = await productService.getProducts();
+        setApiProducts(response);
+
+      } catch (error) {
+        console.error('Ürünleri getirirken bir hata oluştu:', error);
+      }
+    };
+
+  
+    fetchProducts();
+
+    const products = apiProducts.map(apiProduct => new products(apiProduct));
+    //setCurrentData(sortedProducts?.slice(offset, offset + pageLimit));
+  }, []);
 
   return (
     <Fragment>
       <SEO
         titleTemplate="Shop Page"
-        description="Shop page of flone react minimalist eCommerce template."
+        description="Shop page of Marjilens react minimalist eCommerce template."
       />
 
       <LayoutOne headerTop="visible">

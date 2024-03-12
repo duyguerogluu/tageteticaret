@@ -12,14 +12,9 @@ const FooterCopyright = ({ footerLogo, spaceBottomClass, colorClass }) => {
       </div>
       <p>
         &copy; {new Date().getFullYear()}{" "}
-        <a
-          href="https://hasthemes.com"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Flone
-        </a>
-        .<br /> All Rights Reserved
+          Marjilens
+        
+        <br /> All Rights Reserved
       </p>
     </div>
   );

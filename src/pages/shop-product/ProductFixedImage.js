@@ -19,7 +19,7 @@ const ProductFixedImage = () => {
     <Fragment>
       <SEO
         titleTemplate="Product Page"
-        description="Product page of flone react minimalist eCommerce template."
+        description="Product page of Marjilens react minimalist eCommerce template."
       />
 
       <LayoutOne headerTop="visible">

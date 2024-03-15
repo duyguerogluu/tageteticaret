@@ -1,15 +1,17 @@
 import PropTypes from "prop-types";
 import React, { Fragment, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ProductGridListSingle from "../../components/product/ProductGridListSingle";
 import { getProducts } from '../../services/productService';
-
+import { setProducts as setProductStore } from "../../store/slices/product-slice"
 
 const ProductGridList = ({
 
-  
+
   spaceBottomClass
 }) => {
+  const dispatch = useDispatch();
+
   const currency = useSelector((state) => state.currency);
   const { cartItems } = useSelector((state) => state.cart);
   const { wishlistItems } = useSelector((state) => state.wishlist);
@@ -20,7 +22,9 @@ const ProductGridList = ({
     const fetchProducts = async () => {
       try {
         const data = await getProducts();
+        console.log(data)
         setProducts(data);
+        dispatch(setProductStore(data));
       } catch (error) {
         console.error('Ürünleri getirirken bir hata oluştu:', error);
       }
@@ -28,7 +32,7 @@ const ProductGridList = ({
 
     fetchProducts();
   }, []);
-  
+
   return (
     <Fragment>
       {products?.map(product => {

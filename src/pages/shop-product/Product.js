@@ -8,11 +8,16 @@ import RelatedProductSlider from "../../wrappers/product/RelatedProductSlider";
 import ProductDescriptionTab from "../../wrappers/product/ProductDescriptionTab";
 import ProductImageDescription from "../../wrappers/product/ProductImageDescription";
 
+import productService from "../../services/productService";
+
 const Product = () => {
   let { pathname } = useLocation();
   let { id } = useParams();
   const { products } = useSelector((state) => state.product);
-  const product = products.find(product => product.id === id);
+  const product = products.find(product => product._id === id);
+  console.log(id);
+  const location = useLocation();
+  console.log(location.pathname);
   
 
   return (
@@ -36,19 +41,20 @@ const Product = () => {
           spaceTopClass="pt-100"
           spaceBottomClass="pb-100"
           product={product}
-        />
+   
+        /> 
 
         {/* product description tab */}
-        <ProductDescriptionTab
+         {/* <ProductDescriptionTab
           spaceBottomClass="pb-90"
-          productFullDesc={product.fullDescription}
-        />
+          //productFullDesc={product.description}
+        />  */}
 
         {/* related product slider */}
-        <RelatedProductSlider
+         {/* <RelatedProductSlider
           spaceBottomClass="pb-95"
-          category={product.category[0]}
-        />
+          //category={product.category[0]}
+        />  */}
       </LayoutOne>
     </Fragment>
   );

@@ -11,7 +11,7 @@ import Swiper, { SwiperSlide } from "../../components/swiper";
 const ProductImageGalleryLeftThumb = ({ product, thumbPosition }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [index, setIndex] = useState(-1);
-  const slides = product?.image.map((img, i) => ({
+  const slides = product?.images.map((img, i) => ({
       src: process.env.PUBLIC_URL + img,
       key: i,
   }));
@@ -69,7 +69,7 @@ const ProductImageGalleryLeftThumb = ({ product, thumbPosition }) => {
               : "col-xl-10")}
         >
           <div className="product-large-image-wrapper">
-            {product.discount || product.new ? (
+           {/*  {product.discount || product.new ? (
               <div className="product-img-badges">
                 {product.discount ? (
                   <span className="pink">-{product.discount}%</span>
@@ -80,10 +80,10 @@ const ProductImageGalleryLeftThumb = ({ product, thumbPosition }) => {
               </div>
             ) : (
               ""
-            )}
-            {product?.image?.length ? (
+            )} */}
+            {product?.images?.length ? (
               <Swiper options={gallerySwiperParams}>
-                {product?.image.map((single, key) => (
+                {product?.images.map((single, key) => (
                   <SwiperSlide key={key}>
                     <button className="lightgallery-button" onClick={() => setIndex(key)}>
                       <i className="pe-7s-expand1"></i>
@@ -116,7 +116,7 @@ const ProductImageGalleryLeftThumb = ({ product, thumbPosition }) => {
           <div className="product-small-image-wrapper product-small-image-wrapper--side-thumb">
             {product?.image?.length ? (
               <Swiper options={thumbnailSwiperParams}>
-                {product.image.map((single, key) => (
+                {product.images.map((single, key) => (
                   <SwiperSlide key={key}>
                     <div className="single-image">
                       <img

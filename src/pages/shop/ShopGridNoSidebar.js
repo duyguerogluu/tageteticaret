@@ -39,7 +39,7 @@ const ShopGridNoSidebar = () => {
  
 
   useEffect(() => {
-   
+  
     const fetchProducts = async () => {
       try {
         const response = await productService.getProducts();
@@ -52,6 +52,7 @@ const ShopGridNoSidebar = () => {
 
   
     fetchProducts();
+ 
 
     const products = apiProducts.map(apiProduct => new products(apiProduct));
     //setCurrentData(sortedProducts?.slice(offset, offset + pageLimit));

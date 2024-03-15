@@ -44,13 +44,13 @@ const ProductImageDescription = ({ spaceTopClass, spaceBottomClass, galleryType,
             {/* product description info */}
             <ProductDescriptionInfo
               product={product}
-              discountedPrice={discountedPrice}
+              //discountedPrice={discountedPrice}
               currency={currency}
-              finalDiscountedPrice={finalDiscountedPrice}
-              finalProductPrice={finalProductPrice}
-              cartItems={cartItems}
-              wishlistItem={wishlistItem}
-              compareItem={compareItem}
+              //finalDiscountedPrice={finalDiscountedPrice}
+              //finalProductPrice={finalProductPrice}
+              //cartItems={cartItems}
+              //wishlistItem={wishlistItem}
+              //compareItem={compareItem}
             />
           </div>
         </div>

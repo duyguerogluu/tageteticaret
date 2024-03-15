@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Fragment, useState } from "react";
+import { Fragment, useState , useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
@@ -9,6 +9,7 @@ import ProductModal from "./ProductModal";
 import { addToCart } from "../../store/slices/cart-slice";
 import { addToWishlist } from "../../store/slices/wishlist-slice";
 import { addToCompare } from "../../store/slices/compare-slice";
+
 
 const ProductGridListSingle = ({
   product,
@@ -30,10 +31,10 @@ const ProductGridListSingle = ({
     <Fragment>
         <div className={clsx("product-wrap", spaceBottomClass)}>
           <div className="product-img">
-            <Link to={process.env.PUBLIC_URL + "/product/" + product?.id}>
+            <Link to={process.env.PUBLIC_URL + "/product/" + product?._id}>
               <img
                 className="default-img"
-                src={process.env.PUBLIC_URL +  'https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg'}
+                src={process.env.PUBLIC_URL  + 'https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg'}
                 alt=""
               />
               {false ? (
@@ -128,7 +129,7 @@ const ProductGridListSingle = ({
             </h3>
             {product?.rating && product?.rating > 0 ? (
               <div className="product-rating">
-                <Rating ratingValue={product?.rating} />
+                {/* <Rating ratingValue={product?.rating} /> */}
               </div>
             ) : (
               ""

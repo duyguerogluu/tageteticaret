@@ -15,7 +15,7 @@ const ProductImageDescription = ({ spaceTopClass, spaceBottomClass, galleryType,
   const wishlistItem = wishlistItems.find(item => item.id === product.id);
   const compareItem = compareItems.find(item => item.id === product.id);
 
-  const discountedPrice = getDiscountPrice(product.price, product.discount);
+  const discountedPrice = getDiscountPrice(product.price);
   const finalProductPrice = +(product.price * currency.currencyRate).toFixed(2);
   const finalDiscountedPrice = +(
     discountedPrice * currency.currencyRate
@@ -26,26 +26,27 @@ const ProductImageDescription = ({ spaceTopClass, spaceBottomClass, galleryType,
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-md-6">
-            {/* product image gallery */}
+            {/* product image gallery 
             {galleryType === "leftThumb" ? (
               <ProductImageGallerySideThumb
                 product={product}
                 thumbPosition="left"
               />
-            ) : galleryType === "rightThumb" ? (
+            ) 
+            : galleryType === "rightThumb" ? (
               <ProductImageGallerySideThumb product={product} />
             ) : galleryType === "fixedImage" ? (
               <ProductImageFixed product={product} />
             ) : (
               <ProductImageGallery product={product} />
-            )}
+            )}*/}
           </div>
           <div className="col-lg-6 col-md-6">
             {/* product description info */}
             <ProductDescriptionInfo
               product={product}
               //discountedPrice={discountedPrice}
-              currency={currency}
+              //currency={currency}
               //finalDiscountedPrice={finalDiscountedPrice}
               //finalProductPrice={finalProductPrice}
               //cartItems={cartItems}

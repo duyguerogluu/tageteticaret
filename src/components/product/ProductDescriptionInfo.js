@@ -19,7 +19,7 @@ const ProductDescriptionInfo = ({
   compareItem,
 }) => {
   const dispatch = useDispatch();
-  const [selectedProductColor, setSelectedProductColor] = useState(
+  {/* const [selectedProductColor, setSelectedProductColor] = useState(
     product.variation ? product.variation[0].color : ""
   );
   const [selectedProductSize, setSelectedProductSize] = useState(
@@ -28,19 +28,18 @@ const ProductDescriptionInfo = ({
   const [productStock, setProductStock] = useState(
     product.variation ? product.variation[0].size[0].stock : product.stock
   );
-  const [quantityCount, setQuantityCount] = useState(1);
+  const [quantityCount, setQuantityCount] = useState(1);*/}
 
-  const productCartQty = getProductCartQuantity(
-    cartItems,
-    product,
-    selectedProductColor,
-    selectedProductSize
-  );
+  // const productCartQty = getProductCartQuantity(
+  //   cartItems,
+  //   product,
+
+  // );
 
   return (
     <div className="product-details-content ml-70">
-      <h2>{product.name}</h2>
-      <div className="product-details-price">
+      <h2>{product.name} DENEMEEEEEEEEEEEEEEEE</h2>
+       <div className="product-details-price">
         {discountedPrice !== null ? (
           <Fragment>
             <span>{currency.currencySymbol + finalDiscountedPrice}</span>{" "}
@@ -51,8 +50,8 @@ const ProductDescriptionInfo = ({
         ) : (
           <span>{currency.currencySymbol + finalProductPrice} </span>
         )}
-      </div>
-      {product.rating && product.rating > 0 ? (
+      </div> 
+      {/* {product.rating && product.rating > 0 ? (
         <div className="pro-details-rating-wrap">
           <div className="pro-details-rating">
             <Rating ratingValue={product.rating} />
@@ -63,9 +62,9 @@ const ProductDescriptionInfo = ({
       )}
       <div className="pro-details-list">
         <p>{product.shortDescription}</p>
-      </div>
+      </div> */}
 
-      {product.variation ? (
+      {/* {product.variation ? (
         <div className="pro-details-size-color">
           <div className="pro-details-color-wrap">
             <span>Color</span>
@@ -225,8 +224,8 @@ const ProductDescriptionInfo = ({
             </button>
           </div>
         </div>
-      )}
-      {product.category ? (
+      )} */}
+      {/* {product.category ? (
         <div className="pro-details-meta">
           <span>Categories :</span>
           <ul>
@@ -261,7 +260,7 @@ const ProductDescriptionInfo = ({
         </div>
       ) : (
         ""
-      )}
+      )} */}
 
       <div className="pro-details-social">
         <ul>
